@@ -1,0 +1,30 @@
+apply plugin: 'groovy'
+apply plugin: 'maven-publish'
+
+group 'io.zensoft.semver'
+version '1.0.0'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile gradleApi()
+    compile 'org.eclipse.jgit:org.eclipse.jgit:5.0.2.201807311906-r'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = project.group
+            artifactId = project.name
+            version = project.version
+            artifacts { jar }
+        }
+    }
+    repositories {
+        mavenLocal()
+    }
+}
