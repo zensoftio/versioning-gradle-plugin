@@ -35,7 +35,7 @@ build-jar:
 ###########################
 # Publish
 ###########################
-build-jar:
+publish-jar:
   stage: publish
   image: openjdk:8-jdk
   before_script:
@@ -46,3 +46,5 @@ build-jar:
     paths:
       - .gradle/wrapper
       - .gradle/caches
+  only:
+    - master

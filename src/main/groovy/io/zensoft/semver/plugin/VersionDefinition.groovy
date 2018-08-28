@@ -27,12 +27,13 @@ class VersionDefinition {
             this.majorVersion = new Integer(targetVersion[0])
             this.minorVersion = new Integer(targetVersion[1])
             this.patchVersion = new Integer(targetVersion[2])
-            String headCommit = git.log().setMaxCount(1).call().last()
+            String headCommit = git.log().setMaxCount(1).call().last().name
             String tagCommit = new RevWalk(repo).parseCommit(lastTag.objectId).toObjectId().name
             this.snapshot = tagCommit != headCommit
         }
         if (this.snapshot) {
             minorVersion++
+            patchVersion = 0
         }
     }
 
