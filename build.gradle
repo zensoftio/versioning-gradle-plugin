@@ -28,8 +28,8 @@ publishing {
         maven {
             url 'https://repka.zensoft.io/repository/openplatform-maven-release/'
             credentials {
-                username System.getProperty('repoUsername')
-                password System.getProperty('repoPassword')
+                username System.getenv('repoUsername')
+                password System.getenv('repoPassword')
             }
         }
     }
