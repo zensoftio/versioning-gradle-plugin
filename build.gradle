@@ -21,10 +21,16 @@ publishing {
             groupId = project.group
             artifactId = project.name
             version = project.version
-            artifacts { jar }
+            from components.java
         }
     }
     repositories {
-        mavenLocal()
+        maven {
+            url 'https://repka.zensoft.io/repository/openplatform-maven-release/'
+            credentials {
+                username System.getProperty('repoUsername')
+                password System.getProperty('repoPassword')
+            }
+        }
     }
 }
