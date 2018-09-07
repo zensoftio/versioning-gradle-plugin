@@ -1,24 +1,14 @@
-image: docker:latest
-
-services:
-  - docker:dind
+image: openjdk:8-jdk
 
 stages:
   - build
   - publish
-
-variables:
-    DOCKER_DRIVER: overlay2
-    IMAGE_NAME: 431611288834.dkr.ecr.us-east-1.amazonaws.com/videoblock
-    IMAGE_TAG: ${CI_COMMIT_REF_NAME}-${CI_PIPELINE_ID}
-    AWS_REGION: us-east-1
 
 ###########################
 # Build
 ###########################
 build-jar:
   stage: build
-  image: openjdk:8-jdk
   before_script:
     - export GRADLE_USER_HOME=`pwd`/.gradle
   script:
@@ -27,21 +17,17 @@ build-jar:
     paths:
       - .gradle/wrapper
       - .gradle/caches
-  artifacts:
-    paths:
-      - backend/build/libs/*.jar
-    expire_in: 1 week
 
 ###########################
 # Publish
 ###########################
 publish-jar:
   stage: publish
-  image: openjdk:8-jdk
   before_script:
     - export GRADLE_USER_HOME=`pwd`/.gradle
+    - echo "${PLUGIN_TOKEN}" | tr -d '\r' > ${GRADLE_USER_HOME}/gradle.properties
   script:
-    - ./gradlew build publish
+    - ./gradlew build publishPlugins
   cache:
     paths:
       - .gradle/wrapper
