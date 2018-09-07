@@ -1,5 +1,8 @@
-apply plugin: 'groovy'
-apply plugin: 'maven-publish'
+plugins {
+    id 'com.gradle.plugin-publish' version '0.10.0'
+    id 'groovy'
+    id 'java-gradle-plugin'
+}
 
 group 'io.zensoft.semver'
 version '1.0.0'
@@ -15,22 +18,24 @@ dependencies {
     compile 'org.eclipse.jgit:org.eclipse.jgit:5.0.2.201807311906-r'
 }
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = project.group
-            artifactId = project.name
-            version = project.version
-            from components.java
+gradlePlugin {
+    plugins {
+        zensoftGradlePlugin {
+            id = 'io.zensoft.semver'
+            implementationClass = 'io.zensoft.semver.plugin.VersioningPlugin'
         }
     }
-    repositories {
-        maven {
-            url 'https://repka.zensoft.io/repository/openplatform-maven-release/'
-            credentials {
-                username System.getenv('repoUsername')
-                password System.getenv('repoPassword')
-            }
+}
+
+pluginBundle {
+    website = 'https://zensoft.io/'
+    vcsUrl = 'scm:git@github.com:ZenSoftIO/gradle-versioning-plugin.git'
+    tags = ['gradle', 'zensoft', 'plugin']
+    plugins {
+        zensoftGradlePlugin {
+            id = 'io.zensoft.semver'
+            displayName = 'Gradle Versioning Plugin'
+            description = 'Gradle Versioning Plugin'
         }
     }
 }
