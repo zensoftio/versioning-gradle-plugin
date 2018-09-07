@@ -30,7 +30,7 @@ gradlePlugin {
 pluginBundle {
     website = 'https://zensoft.io/'
     vcsUrl = 'scm:git@github.com:ZenSoftIO/gradle-versioning-plugin.git'
-    tags = ['gradle', 'zensoft', 'plugin']
+    tags = ['zensoft', 'versioning', 'git']
     plugins {
         zensoftGradlePlugin {
             id = 'io.zensoft.semver'
