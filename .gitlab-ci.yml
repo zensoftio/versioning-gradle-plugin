@@ -36,4 +36,3 @@ publish-jar:
       - .gradle/caches
   only:
     - tags
-    - master
