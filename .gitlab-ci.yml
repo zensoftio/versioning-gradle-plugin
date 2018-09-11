@@ -4,6 +4,7 @@ stages:
   - build
   - publish
 
+
 ###########################
 # Build
 ###########################
@@ -17,6 +18,7 @@ build-jar:
     paths:
       - .gradle/wrapper
       - .gradle/caches
+
 
 ###########################
 # Publish
@@ -33,4 +35,5 @@ publish-jar:
       - .gradle/wrapper
       - .gradle/caches
   only:
+    - tags
     - master
