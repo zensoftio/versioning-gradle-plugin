@@ -4,7 +4,7 @@ plugins {
     id 'java-gradle-plugin'
 }
 
-group 'io.zensoft.semver'
+group 'io.zensoft.versioning'
 version '1.0.0'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -21,8 +21,8 @@ dependencies {
 gradlePlugin {
     plugins {
         zensoftGradlePlugin {
-            id = 'io.zensoft.semver'
-            implementationClass = 'io.zensoft.semver.plugin.VersioningPlugin'
+            id = 'io.zensoft.versioning'
+            implementationClass = 'io.zensoft.versioning.VersioningPlugin'
         }
     }
 }
@@ -30,10 +30,10 @@ gradlePlugin {
 pluginBundle {
     website = 'https://zensoft.io/'
     vcsUrl = 'scm:git@github.com:ZenSoftIO/gradle-versioning-plugin.git'
-    tags = ['zensoft', 'versioning', 'git']
+    tags = ['zensoft', 'versioning', 'git', 'version']
     plugins {
         zensoftGradlePlugin {
-            id = 'io.zensoft.semver'
+            id = 'io.zensoft.versioning'
             displayName = 'Gradle Versioning Plugin'
             description = 'Gradle Versioning Plugin'
         }

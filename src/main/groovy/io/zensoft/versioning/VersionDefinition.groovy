@@ -1,4 +1,4 @@
-package io.zensoft.semver.plugin
+package io.zensoft.versioning
 
 import org.eclipse.jgit.api.Git
 import org.eclipse.jgit.lib.Ref

@@ -1,4 +1,4 @@
-package io.zensoft.semver.plugin
+package io.zensoft.versioning
 
 import org.eclipse.jgit.lib.Repository
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder
