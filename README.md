@@ -9,7 +9,7 @@ Plugin aimed to set project version, according to git tag, which does not requir
 In buildscript, simply apply it as in a code snippet below
 ```groovy
 plugins {
-    id 'io.zensoft.semver' version '1.0.0'
+    id 'io.zensoft.versioning' version '1.0.0'
 }
 ```
 
