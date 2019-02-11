@@ -29,7 +29,7 @@ gradlePlugin {
 
 pluginBundle {
     website = 'https://github.com/zensoftio/gradle-versioning-plugin'
-    vcsUrl = 'scm:git@github.com:zensoftio/gradle-versioning-plugin.git'
+    vcsUrl = 'https://github.com/zensoftio/gradle-versioning-plugin.git'
     tags = ['zensoft', 'versioning', 'git', 'version']
     plugins {
         zensoftGradlePlugin {
