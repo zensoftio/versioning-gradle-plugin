@@ -11,7 +11,7 @@ class VersioningPlugin implements Plugin<Project> {
     void apply(Project project) {
         FileRepositoryBuilder repositoryBuilder = new FileRepositoryBuilder()
         Repository repo = repositoryBuilder
-                .setGitDir(new File("${project.projectDir}/.git"))
+                .setGitDir(new File("${project.rootProject.projectDir}/.git"))
                 .setMustExist(false)
                 .build()
         VersionDefinition versionDefinition = new VersionDefinition(repo)
